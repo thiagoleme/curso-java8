@@ -1,9 +1,7 @@
 package br.com.curso.java8;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Consumer;
 
 import org.junit.Test;
 
@@ -20,30 +18,13 @@ public class DefaultMethod {
 	public void imprimeOrdenadoTest() {
 		List<String> palavras = criaLista();
 
-		Comparator<String> comparator = new Comparator<String>() {
-			@Override
-			public int compare(String palavra1, String palavra2) {
-				if (palavra1.length() < palavra2.length())
-					return -1;
-				if (palavra1.length() > palavra2.length())
-					return 1;
-				return 0;
-			}
-		};
-		palavras.sort(comparator);
+		palavras.sort((palavra1, palavra2) -> Integer.compare(palavra1.length(), palavra2.length()));
 
 		imprimeLista(palavras);
 	}
 
 	private void imprimeLista(List<String> palavras) {
-		Consumer<String> consumer = new Consumer<String>() {
-
-			@Override
-			public void accept(String palavra) {
-				System.out.println(palavra);
-			}
-		};
-		palavras.forEach(consumer);
+		palavras.forEach(palavra -> System.out.println(palavra));
 	}
 
 	private List<String> criaLista() {
