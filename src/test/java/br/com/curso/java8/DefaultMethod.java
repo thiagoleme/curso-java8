@@ -10,7 +10,7 @@ public class DefaultMethod {
 	@Test
 	public void imprimeListTest() {
 		List<String> palavras = criaLista();
-
+		
 		 imprimeLista(palavras);
 	}
 
@@ -42,7 +42,7 @@ public class DefaultMethod {
 		palavras.add("alura online");
 		palavras.add("casa do código");
 		palavras.add("caelum");
-
+		
 		return palavras;
 	}
 }
